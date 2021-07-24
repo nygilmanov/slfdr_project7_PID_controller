@@ -44,5 +44,5 @@ At first, I attempted to utilize the Twiddle to optimize the parameters.  In Twi
 # Running the Program
 
 1. Download the simulator and open it. In the main menu screen select : Path Planning.
-2. The [PID README](https://github.com/lilyhappily/Udacity-Project3-CarND-PID-Control-and-notes/blob/master/CarND-PID-Control-Project/README.md)  has more detailed instructions for installing and using c++ uWebScoketIO.
+2. The [PID README](./README0.md)  has more detailed instructions for installing and using c++ uWebScoketIO.
 
