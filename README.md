@@ -8,6 +8,16 @@ A **proportional–integral–derivative controller** (**PID controller**) is a 
 
 The PID controller is one of the most common and fundamental controllers. The **proportional**, **integral**, and **derivative** terms are summed to calculate the output of the PID controller.
 
+
+- **The term P** (Kp in my code) is proportional to the **cross track error** (cte in the code), which is the lateral distance between the vehicle and the so-called reference trajectory. 
+
+In this project, the reference trajectory is the center of the lane. Using **P-Control** alone will result in an error between the vehicle and lane center, as we can see from the video. A high proportional gain results in a large change in the output for a given change in the error. If the proportional gain is too high, the system can become unstable. But tuning theory and industrial practice indicate that the proportional term should contribute the bulk of the output change.
+
+- **The term I**(Ki in the code) accounts for the sum of  cross track errors over time. If there is still residual error after applying P-Control, the integrate term seeks to eliminate the residual error by adding a control on accumulating the past errors. However, since the integral term responds to accumulated errors from the past, it can cause the present value to overshoot the reference trajectory.
+
+- **The term D**(Kd in my code) bases on the temporal derivative of the cross track error. That is the current change rate of error. The more rapid the change, the greater the controlling. Derivative action can help improving stability of the system.
+
+
 <table style="width:100%">
   <tr>
     <th>
@@ -28,14 +38,6 @@ The PID controller is one of the most common and fundamental controllers. The **
   </tr>
   </table>
 
-- **The term P** (Kp in my code) is proportional to the **cross track error** (cte in the code), which is the lateral distance between the vehicle and the so-called reference trajectory. 
-
-In this project, the reference trajectory is the center of the lane. Using **P-Control** alone will result in an error between the vehicle and lane center, as we can see from the video. A high proportional gain results in a large change in the output for a given change in the error. If the proportional gain is too high, the system can become unstable. But tuning theory and industrial practice indicate that the proportional term should contribute the bulk of the output change.
-
-- **The term I**(Ki in the code) accounts for the sum of  cross track errors over time. If there is still residual error after applying P-Control, the integrate term seeks to eliminate the residual error by adding a control on accumulating the past errors. However, since the integral term responds to accumulated errors from the past, it can cause the present value to overshoot the reference trajectory.
-
-- **The term D**(Kd in my code) bases on the temporal derivative of the cross track error. That is the current change rate of error. The more rapid the change, the greater the controlling. Derivative action can help improving stability of the system.
-
 
 # Tuning parameters
 
@@ -44,5 +46,5 @@ At first, I attempted to utilize the Twiddle to optimize the parameters.  In Twi
 # Running the Program
 
 1. Download the simulator and open it. In the main menu screen select : Path Planning.
-2. The [PID README](./README0.md)  has more detailed instructions for installing and using c++ uWebScoketIO.
+2. The [PID README](./SETUP.md)  has more detailed instructions for installing and using c++ uWebScoketIO.
 
